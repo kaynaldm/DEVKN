@@ -18,7 +18,7 @@ const projects: Project[] = [
       'Gestão completa com agendamentos online, controle de cortes e administração de planos de assinatura para clientes.',
     icon: Scissors,
     stack: ['Agendamentos', 'Planos', 'Gestão'],
-    image: '/api/image?path=C:/Users/kayna/.gemini/antigravity-ide/brain/2c6f57c0-b281-4c9a-abbf-17980e2091c2/dashboard_barbearia_1786767304875.png',
+    image: '/dashboard_barbearia_1786767304875.png',
   },
   {
     title: 'Gestão de Mandato & Política',
@@ -26,7 +26,7 @@ const projects: Project[] = [
       'Plataforma estratégica para acompanhamento de demandas, controle de agendas e automação de postagens em redes sociais.',
     icon: Megaphone,
     stack: ['Agendas', 'Demandas', 'Automação'],
-    image: '/api/image?path=C:/Users/kayna/.gemini/antigravity-ide/brain/2c6f57c0-b281-4c9a-abbf-17980e2091c2/dashboard_politica_1786767332874.png',
+    image: '/dashboard_politica_1786767332874.png',
   },
   {
     title: 'Motor de Achadinhos (Afiliados)',
@@ -34,7 +34,7 @@ const projects: Project[] = [
       'Captura de produtos com link de afiliado e disparo 100% automatizado para TikTok, Instagram, Facebook, X e YouTube.',
     icon: Share2,
     stack: ['Afiliados', 'Auto-Post', 'Multi-Redes'],
-    image: '/api/image?path=C:/Users/kayna/.gemini/antigravity-ide/brain/2c6f57c0-b281-4c9a-abbf-17980e2091c2/dashboard_achadinhos_1786767344192.png',
+    image: '/dashboard_achadinhos_1786767344192.png',
   },
   {
     title: 'Auto-Cortes para Influenciadores',
@@ -42,7 +42,7 @@ const projects: Project[] = [
       'Busca vídeos no YouTube, localiza os melhores momentos, realiza cortes automaticamente e publica com descrições otimizadas.',
     icon: Video,
     stack: ['YouTube', 'Cortes', 'Social Media'],
-    image: '/api/image?path=C:/Users/kayna/.gemini/antigravity-ide/brain/2c6f57c0-b281-4c9a-abbf-17980e2091c2/dashboard_cortes_1786767367956.png',
+    image: '/dashboard_cortes_1786767367956.png',
   },
   {
     title: 'ERP para Lojas',
@@ -50,7 +50,7 @@ const projects: Project[] = [
       'Controle total de produtos, despesas, cálculo de lucro diário, contagem de estoque e automação de mensagens via WhatsApp.',
     icon: Store,
     stack: ['Estoque', 'Financeiro', 'WhatsApp'],
-    image: '/api/image?path=C:/Users/kayna/.gemini/antigravity-ide/brain/2c6f57c0-b281-4c9a-abbf-17980e2091c2/dashboard_erp_1786767377544.png',
+    image: '/dashboard_erp_1786767377544.png',
   },
   {
     title: 'Sistemas Corporativos Sob Medida',
@@ -58,7 +58,7 @@ const projects: Project[] = [
       'Plataformas de gestão geral desenvolvidas do zero com base nas ideias e regras de negócio exclusivas de cada cliente.',
     icon: Building2,
     stack: ['Sob Medida', 'Gestão', 'Escala'],
-    image: '/api/image?path=C:/Users/kayna/.gemini/antigravity-ide/brain/2c6f57c0-b281-4c9a-abbf-17980e2091c2/dashboard_corporativo_1786767387927.png',
+    image: '/dashboard_corporativo_1786767387927.png',
   },
 ]
 
