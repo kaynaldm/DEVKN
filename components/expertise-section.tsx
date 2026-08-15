@@ -1,3 +1,7 @@
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+
 function SystemIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -57,69 +61,101 @@ const services = [
     id: '01',
     title: 'Desenvolvimento de Sistemas e MVPs',
     description:
-      'Criação de aplicações web funcionais e responsivas, integrando interfaces modernas com bancos de dados estruturados para sistemas de gestão, dashboards e plataformas de conteúdo.',
+      'Criamos aplicações web personalizadas, escaláveis e seguras, integrando interfaces modernas com bancos de dados robustos e dashboards inteligentes.',
     icon: SystemIcon,
   },
   {
     id: '02',
     title: 'Automação de Processos e Bots',
     description:
-      'Desenvolvimento de robôs para coleta de dados (web scraping), integração de APIs e automação de fluxos de mensagens para otimizar campanhas de marketing de afiliados e atendimento.',
+      'Desenvolvemos robôs e integrações que automatizam tarefas repetitivas, coletam dados e conectam sistemas para aumentar a eficiência do seu negócio.',
     icon: BotWorkflowIcon,
   },
   {
     id: '03',
     title: 'Soluções Administrativas e de Estoque',
     description:
-      'Estruturação e organização operacional, unindo experiência prática de chão de loja com o desenvolvimento de ferramentas digitais para rastreabilidade e controle financeiro.',
+      'Sistemas completos para gestão de estoque, vendas e operações, com relatórios precisos e controle financeiro na palma da mão.',
     icon: InventoryIcon,
   },
 ]
 
+import Image from 'next/image'
+import bgImage from '@/imagem de fundo.png'
+
 export function ExpertiseSection() {
   return (
-    <section id="sobre" className="border-b border-border/60 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col gap-16 md:flex-row md:items-start md:gap-24">
+    <section id="sobre" className="relative border-b border-border/60 py-24 md:py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={bgImage}
+          alt="Plano de Fundo"
+          fill
+          className="object-cover object-center opacity-40"
+        />
+        <div className="absolute inset-0 bg-background/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+      </div>
+
+      <div className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 z-10">
+        <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-24">
           
-          {/* Esquerda: Sticky Header */}
-          <div className="md:sticky md:top-32 md:w-1/3">
-            <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
-              Soluções Digitais e Automação Prática
+          {/* Esquerda: Sticky Header & Illustration */}
+          <div className="lg:sticky lg:top-32 lg:w-[45%] flex flex-col">
+            <span className="text-[12px] font-semibold tracking-[0.15em] text-[#007BFF] uppercase mb-4">
+              Nossas Soluções
+            </span>
+            <h2 className="text-balance text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.1]">
+              Tecnologia que <br/> transforma ideias <br/> <span className="text-[#007BFF]">em resultados.</span>
             </h2>
-            <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-              Do planejamento à execução, crio ferramentas focadas em otimizar rotinas, gerenciar dados e impulsionar vendas com clareza técnica.
+            <p className="mt-6 text-base leading-relaxed text-slate-400 max-w-md">
+              Soluções digitais inteligentes e automação prática para otimizar processos, reduzir custos e acelerar o crescimento do seu negócio.
             </p>
+
+
+
+
           </div>
 
-          {/* Direita: Módulos de Serviço (Lista Técnica) */}
-          <div className="flex flex-col md:w-2/3">
-            <div className="border-t border-border/60">
-              {services.map((service) => {
-                const Icon = service.icon
-                return (
-                  <div
-                    key={service.id}
-                    className="flex flex-col-reverse items-start gap-6 border-b border-primary/50 py-8 transition-colors duration-300 sm:py-10 sm:flex-row sm:items-center"
-                  >
-                    <div className="flex flex-1 flex-col gap-3">
-                      <div className="flex items-center gap-4">
-                        <h3 className="text-lg font-semibold tracking-tight text-primary transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                      </div>
-                      <p className="text-base leading-relaxed text-muted-foreground sm:max-w-md">
+          {/* Direita: Módulos de Serviço (Cards) */}
+          <div className="flex flex-col gap-6 lg:w-[55%]">
+            {services.map((service) => {
+              const Icon = service.icon
+              return (
+                <div
+                  key={service.id}
+                  className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-6 rounded-2xl border border-slate-800/60 bg-[#06101c]/60 p-6 sm:p-8 hover:bg-[#081525] hover:border-[#007BFF]/30 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#007BFF]/0 via-[#007BFF]/0 to-[#007BFF]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                  <div className="flex items-start gap-4 sm:gap-6 flex-1 z-10">
+                    <div className="flex flex-col items-center gap-4 mt-1">
+                      <span className="text-sm font-bold text-[#007BFF] bg-[#007BFF]/10 px-2 py-1 rounded">
+                        {service.id}
+                      </span>
+                      <div className="hidden sm:block w-px h-16 bg-slate-800/80"></div>
+                    </div>
+                    
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-white">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-400">
                         {service.description}
                       </p>
                     </div>
-                    
-                    <div className="shrink-0 text-primary transition-all duration-300 sm:ml-4 flex items-center justify-center">
-                      <Icon className="h-14 w-14 sm:h-20 sm:w-20" aria-hidden="true" />
+                  </div>
+                  
+                  <div className="shrink-0 z-10 self-start sm:self-center">
+                    <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-slate-700/50 bg-[#0a1628] group-hover:border-[#007BFF]/50 group-hover:shadow-[0_0_25px_rgba(0,123,255,0.2)] transition-all duration-300">
+                      <Icon className="h-8 w-8 sm:h-10 sm:w-10 text-[#007BFF]" aria-hidden="true" />
                     </div>
                   </div>
-                )
-              })}
-            </div>
+                </div>
+              )
+            })}
           </div>
           
         </div>

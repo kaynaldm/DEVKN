@@ -37,27 +37,25 @@ export function ContactFooter() {
     <footer id="contato" className="relative overflow-hidden">
       <div className="pointer-events-none absolute -bottom-32 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-24">
-        <div className="rounded-2xl border border-border bg-card/60 p-8 text-center md:p-14">
-          <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight md:text-4xl">
-            Pronto para automatizar e escalar suas operações?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            Conte seu desafio e eu retorno com uma proposta técnica clara para o
-            seu próximo sistema.
-          </p>
+      <div className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24 flex flex-col items-start justify-start text-left">
+        <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
+          Pronto para automatizar e escalar suas operações?
+        </h2>
+        <p className="mt-4 leading-relaxed text-slate-300 max-w-xl">
+          Conte seu desafio e eu retorno com uma proposta técnica clara para o
+          seu próximo sistema.
+        </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="group bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <a href="https://wa.me/5592974005948?text=Ol%C3%A1%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20sobre%20a%20constru%C3%A7%C3%A3o%20de%20um%20sistema." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center whitespace-nowrap">
-                Solicitar Proposta Técnica
-              </a>
-            </Button>
-          </div>
+        <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
+          <Button
+            asChild
+            size="lg"
+            className="group bg-[#007BFF] text-white hover:bg-[#0056b3] rounded-full px-8 h-12 sm:h-14 text-[14px] lg:text-[16px] font-medium transition-all shadow-[0_0_30px_rgba(0,123,255,0.25)] border-none w-full sm:w-auto"
+          >
+            <a href="https://wa.me/5592974005948?text=Ol%C3%A1%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20sobre%20a%20constru%C3%A7%C3%A3o%20de%20um%20sistema." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center whitespace-nowrap">
+              Solicitar Proposta Técnica
+            </a>
+          </Button>
         </div>
       </div>
     </footer>

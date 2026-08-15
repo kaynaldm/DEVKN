@@ -77,7 +77,7 @@ export function ProjectsSection() {
 
   return (
     <section id="projetos" className="border-b border-border/60 py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
         <div className="mb-14 max-w-2xl">
           <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
             Projetos que resolvem problemas reais

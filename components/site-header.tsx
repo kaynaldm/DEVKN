@@ -160,7 +160,7 @@ function RobotLogo() {
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="w-full flex h-16 items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32">
         <Link href="#home" className="group flex items-center gap-3">
           <div className="relative flex-shrink-0">
             <div className="h-9 w-9 rounded-full overflow-hidden ring-2 ring-primary/40 shadow-lg shadow-primary/20 transition-all duration-300 group-hover:ring-primary/70 group-hover:shadow-primary/40">
