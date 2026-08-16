@@ -65,12 +65,7 @@ const projects: Project[] = [
 export function ProjectsSection() {
   const handleProjectClick = (e: React.MouseEvent<HTMLAnchorElement>, title: string) => {
     e.preventDefault()
-    const hour = new Date().getHours()
-    let greeting = 'Boa noite'
-    if (hour >= 5 && hour < 12) greeting = 'Bom dia'
-    else if (hour >= 12 && hour < 18) greeting = 'Boa tarde'
-    
-    const message = `Olá, ${greeting}! Tenho interesse no sistema: ${title}. Podemos conversar?`
+    const message = `Olá! Gostaria de mais informações sobre o ${title}. Como funciona?`
     const url = `https://wa.me/5592974005948?text=${encodeURIComponent(message)}`
     window.open(url, '_blank')
   }
@@ -131,7 +126,7 @@ export function ProjectsSection() {
                   </ul>
 
                   <a
-                    href={`https://wa.me/5592974005948?text=${encodeURIComponent('Olá! Quero esse sistema: ' + project.title)}`}
+                    href={`https://wa.me/5592974005948?text=${encodeURIComponent('Olá! Gostaria de mais informações sobre o ' + project.title + '. Como funciona?')}`}
                     onClick={(e) => handleProjectClick(e, project.title)}
                     target="_blank"
                     rel="noopener noreferrer"
