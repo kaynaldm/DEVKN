@@ -65,7 +65,8 @@ const projects: Project[] = [
 export function ProjectsSection() {
   const handleProjectClick = (e: React.MouseEvent<HTMLAnchorElement>, title: string) => {
     e.preventDefault()
-    const message = `Olá! Gostaria de mais informações sobre o ${title}. Como funciona?`
+    const displayTitle = title.toLowerCase().startsWith('sistema') ? title.replace(/^sistemas?\s/i, '') : title
+    const message = `Olá! Gostaria de mais informações sobre o sistema ${displayTitle}. Como funciona?`
     const url = `https://wa.me/5592974005948?text=${encodeURIComponent(message)}`
     window.open(url, '_blank')
   }
@@ -126,7 +127,7 @@ export function ProjectsSection() {
                   </ul>
 
                   <a
-                    href={`https://wa.me/5592974005948?text=${encodeURIComponent('Olá! Gostaria de mais informações sobre o ' + project.title + '. Como funciona?')}`}
+                    href={`https://wa.me/5592974005948?text=${encodeURIComponent('Olá! Gostaria de mais informações sobre o sistema ' + (project.title.toLowerCase().startsWith('sistema') ? project.title.replace(/^sistemas?\s/i, '') : project.title) + '. Como funciona?')}`}
                     onClick={(e) => handleProjectClick(e, project.title)}
                     target="_blank"
                     rel="noopener noreferrer"
