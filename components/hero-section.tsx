@@ -8,7 +8,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[80vh] md:min-h-[90vh] flex items-start md:items-center overflow-hidden border-b border-border/60"
+      className="relative min-h-[55vh] md:min-h-[90vh] flex items-start md:items-center overflow-hidden border-b border-border/60"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -23,10 +23,10 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-background/20"></div>
       </div>
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 pt-16 pb-20 md:py-32 z-10">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 pt-16 pb-12 md:py-32 z-10">
         
         {/* Text Content */}
-        <div className="max-w-3xl text-left">
+        <div className="max-w-3xl text-left select-none">
           
           {/* Supertext */}
           <div className="flex items-center gap-4 mb-6">
@@ -51,7 +51,7 @@ export function HeroSection() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-sans text-[40px] sm:text-[48px] lg:text-[56px] font-medium leading-[1.1] tracking-tight">
+          <h1 className="font-sans text-[34px] sm:text-[48px] lg:text-[56px] font-medium leading-[1.1] tracking-tight">
             <span className="block text-white mb-1">Soluções que</span>
             <span className="text-[#007BFF]">impulsionam</span> <span className="text-white">decisões<span className="text-[#007BFF]">.</span></span>
           </h1>
@@ -73,15 +73,6 @@ export function HeroSection() {
                   className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
                 />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="w-full sm:w-auto rounded-full px-8 h-12 sm:h-14 border border-slate-700/80 bg-transparent text-slate-200 hover:bg-slate-800/60 hover:text-white transition-colors text-[14px] lg:text-[16px] font-medium"
-            >
-              <Link href="https://wa.me/5592974005948?text=Ol%C3%A1%21%20Gostaria%20de%20entrar%20em%20contato%20para%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">
-                Entrar em contato
               </Link>
             </Button>
           </div>

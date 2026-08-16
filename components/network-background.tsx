@@ -13,9 +13,9 @@ const GLOW_CYCLE_MS = 6000 // Ciclo de 6s
 
 // 2 & 3. Partículas em 3 Camadas de Profundidade + Parallax
 const LAYERS = {
-  far: { count: 15, radius: 1.0, opacity: 0.3, speed: 0.1, parallax: 0,  blur: 1.0 },
+  far: { count: 15, radius: 1.0, opacity: 0.3, speed: 0.1, parallax: 0, blur: 1.0 },
   mid: { count: 12, radius: 1.8, opacity: 0.5, speed: 0.2, parallax: 12, blur: 0.5 },
-  near:{ count: 8,  radius: 2.5, opacity: 0.7, speed: 0.3, parallax: 25, blur: 0.0 }
+  near: { count: 8, radius: 2.5, opacity: 0.7, speed: 0.3, parallax: 25, blur: 0.0 }
 }
 
 // 4. Conexões
@@ -70,7 +70,7 @@ class Particle {
     if (!isMobile && conf.parallax > 0) {
       const dx = (mouseX - canvasWidth / 2) / (canvasWidth / 2) // -1 a 1
       const dy = (mouseY - canvasHeight / 2) / (canvasHeight / 2) // -1 a 1
-      
+
       const targetX = this.baseX - dx * conf.parallax
       const targetY = this.baseY - dy * conf.parallax
 
@@ -88,7 +88,7 @@ class Particle {
     ctx.beginPath()
     ctx.arc(this.x, this.y, conf.radius, 0, Math.PI * 2)
     ctx.fillStyle = `rgba(${COLOR_RGB}, ${conf.opacity})`
-    
+
     // Efeito de blur por camada
     if (conf.blur > 0) {
       ctx.filter = `blur(${conf.blur}px)`
@@ -102,7 +102,7 @@ class Particle {
     if (this.isHighlight) {
       const cycleTime = (time + this.highlightDelay) % HIGHLIGHT_CYCLE_MS
       const progress = cycleTime / HIGHLIGHT_CYCLE_MS // 0 a 1
-      
+
       const currentRadius = HIGHLIGHT_BASE_RADIUS * (1 + progress * 0.3) // Scale 1 a 1.3
       const currentOpacity = HIGHLIGHT_MAX_OPACITY * (1 - progress) // Fade out
 
@@ -137,11 +137,11 @@ export function NetworkBackground() {
 
       mouseRef.current = { x: canvas.width / 2, y: canvas.height / 2 }
       particles = []
-      
+
       // Instanciar camadas exatamente como solicitado
       for (let i = 0; i < LAYERS.far.count; i++) particles.push(new Particle(canvas.width, canvas.height, 'far'))
       for (let i = 0; i < LAYERS.mid.count; i++) particles.push(new Particle(canvas.width, canvas.height, 'mid'))
-      
+
       for (let i = 0; i < LAYERS.near.count; i++) {
         const isHighlight = i < HIGHLIGHT_COUNT
         const delay = isHighlight ? i * (HIGHLIGHT_CYCLE_MS / HIGHLIGHT_COUNT) : 0 // 0s, 1s, 2s
@@ -156,9 +156,9 @@ export function NetworkBackground() {
 
       // 1. Glow Radial atrás do <h1>
       // Posicionando o centro Y ligeiramente acima do meio da tela para ficar exatamente atrás do título
-      const glowY = canvas.height * 0.4 
+      const glowY = canvas.height * 0.4
       const glowOpacity = GLOW_BASE_OPACITY + Math.sin((time * Math.PI * 2) / GLOW_CYCLE_MS) * GLOW_PULSE_AMPLITUDE
-      
+
       ctx.save()
       ctx.filter = 'blur(90px)' // Blur nativo de 90px
       const gradient = ctx.createRadialGradient(
@@ -167,7 +167,7 @@ export function NetworkBackground() {
       )
       gradient.addColorStop(0, `rgba(${COLOR_RGB}, ${glowOpacity})`)
       gradient.addColorStop(1, `rgba(${COLOR_RGB}, 0)`)
-      
+
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       ctx.restore()
@@ -183,7 +183,7 @@ export function NetworkBackground() {
 
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j]
-          
+
           if (p1.layer !== p2.layer) continue
 
           const dx = p1.x - p2.x
