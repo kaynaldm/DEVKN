@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'Início', href: '#home' },
   { label: 'Projetos', href: '#projetos' },
   { label: 'Sobre', href: '#sobre' },
-  { label: 'Contato', href: 'https://wa.me/5592974005948?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20sobre%20os%20seus%20servi%C3%A7os.' },
 ]
 
 function RobotLogo() {
