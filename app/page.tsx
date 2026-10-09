@@ -5,6 +5,7 @@ import { ToolsSection } from '@/components/tools-section'
 import { ProjectsSection } from '@/components/projects-section'
 import { ExpertiseSection } from '@/components/expertise-section'
 import { ContactFooter } from '@/components/contact-footer'
+import { WhatsappButton } from '@/components/whatsapp-button'
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
         <ToolsSection />
       </main>
       <ContactFooter />
+      <WhatsappButton />
     </div>
   )
 }

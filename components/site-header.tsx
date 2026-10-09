@@ -156,12 +156,12 @@ function RobotLogo() {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+    <header className="hidden md:block sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="w-full flex h-16 items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32">
 
 
-        <nav aria-label="Navegação principal" className="hidden md:block">
-          <ul className="flex items-center gap-8">
+        <nav aria-label="Navegação principal" className="hidden md:block w-full">
+          <ul className="flex items-center justify-end gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -174,14 +174,6 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-
-        <Button
-          asChild
-          size="sm"
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
-        >
-          <Link href="https://wa.me/5592974005948?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20sobre%20os%20seus%20servi%C3%A7os." target="_blank" rel="noopener noreferrer">Fale comigo</Link>
-        </Button>
       </div>
     </header>
   )
