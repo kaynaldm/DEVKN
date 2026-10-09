@@ -1,6 +1,6 @@
 "use client"
 
-import { Scissors, Megaphone, Share2, Video, Store, Building2, ArrowUpRight } from 'lucide-react'
+import { Scissors, Megaphone, Share2, Video, Store, Building2, ArrowUpRight, LineChart } from 'lucide-react'
 import Image from 'next/image'
 
 type Project = {
@@ -9,6 +9,7 @@ type Project = {
   icon: React.ComponentType<{ className?: string }>
   stack: string[]
   image: string
+  imagePosition?: string
 }
 
 const projects: Project[] = [
@@ -18,7 +19,8 @@ const projects: Project[] = [
       'Gestão completa com agendamentos online, controle de cortes e administração de planos de assinatura para clientes.',
     icon: Scissors,
     stack: ['Agendamentos', 'Planos', 'Gestão'],
-    image: '/dashboard_barbearia_1786767304875.png',
+    image: '/barbearia_foto_real.jpg',
+    imagePosition: 'object-top',
   },
   {
     title: 'Gestão de Mandato & Política',
@@ -26,7 +28,8 @@ const projects: Project[] = [
       'Plataforma estratégica para acompanhamento de demandas, controle de agendas e automação de postagens em redes sociais.',
     icon: Megaphone,
     stack: ['Agendas', 'Demandas', 'Automação'],
-    image: '/dashboard_politica_1786767332874.png',
+    image: '/dashboard_politica_brasil.jpg',
+    imagePosition: 'object-top',
   },
   {
     title: 'Motor de Achadinhos (Afiliados)',
@@ -34,7 +37,8 @@ const projects: Project[] = [
       'Captura de produtos com link de afiliado e disparo 100% automatizado para TikTok, Instagram, Facebook, X e YouTube.',
     icon: Share2,
     stack: ['Afiliados', 'Auto-Post', 'Multi-Redes'],
-    image: '/dashboard_achadinhos_1786767344192.png',
+    image: '/dashboard_achadinhos_real.jpg',
+    imagePosition: 'object-top',
   },
   {
     title: 'Auto-Cortes para Influenciadores',
@@ -42,7 +46,8 @@ const projects: Project[] = [
       'Busca vídeos no YouTube, localiza os melhores momentos, realiza cortes automaticamente e publica com descrições otimizadas.',
     icon: Video,
     stack: ['YouTube', 'Cortes', 'Social Media'],
-    image: '/dashboard_cortes_1786767367956.png',
+    image: '/dashboard_cortes_real.jpg',
+    imagePosition: 'object-top',
   },
   {
     title: 'ERP para Lojas',
@@ -50,7 +55,8 @@ const projects: Project[] = [
       'Controle total de produtos, despesas, cálculo de lucro diário, contagem de estoque e automação de mensagens via WhatsApp.',
     icon: Store,
     stack: ['Estoque', 'Financeiro', 'WhatsApp'],
-    image: '/dashboard_erp_1786767377544.png',
+    image: '/dashboard_erp_real.jpg',
+    imagePosition: 'object-top',
   },
   {
     title: 'Sistemas Corporativos Sob Medida',
@@ -58,7 +64,16 @@ const projects: Project[] = [
       'Plataformas de gestão geral desenvolvidas do zero com base nas ideias e regras de negócio exclusivas de cada cliente.',
     icon: Building2,
     stack: ['Sob Medida', 'Gestão', 'Escala'],
-    image: '/dashboard_corporativo_1786767387927.png',
+    image: '/dashboard_corporativo_real.jpg',
+    imagePosition: 'object-top',
+  },
+  {
+    title: 'Dashboard de Métricas de Performance',
+    description:
+      'Acompanhamento avançado de dados com análise de tráfego, taxas de conversão e métricas vitais para tomada de decisão.',
+    icon: LineChart,
+    stack: ['Tráfego', 'Conversão', 'Analytics'],
+    image: '/dashboard_metricas.jpg',
   },
 ]
 
@@ -72,7 +87,7 @@ export function ProjectsSection() {
   }
 
   return (
-    <section id="projetos" className="border-b border-border/60 py-12 md:py-24">
+    <section id="projetos" className="py-12 md:py-24">
       <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
         <div className="mb-14 max-w-2xl">
           <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
@@ -92,17 +107,17 @@ export function ProjectsSection() {
                 key={project.title}
                 className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:glow-teal"
               >
-                <div className="relative h-40 sm:h-48 w-full border-b border-border/60">
+                <div className="relative aspect-video w-full border-b border-border/60">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`object-cover ${project.imagePosition || 'object-center'} transition-transform duration-500 group-hover:scale-105`}
                   />
                   {/* Subtle overlay to blend the image with dark mode */}
                   <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
-                
+
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="-mt-11 mb-5 flex h-11 w-11 relative z-10 items-center justify-center rounded-lg border border-primary/30 bg-background text-primary shadow-sm">
                     <Icon className="h-5 w-5" aria-hidden="true" />

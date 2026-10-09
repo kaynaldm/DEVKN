@@ -85,7 +85,7 @@ import bgImage from '@/imagem de fundo.png'
 
 export function ExpertiseSection() {
   return (
-    <section id="sobre" className="relative border-b border-border/60 py-24 md:py-32 overflow-hidden">
+    <section id="expertise" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
