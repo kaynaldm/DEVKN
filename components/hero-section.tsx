@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import bgImage from '@/tema de fundo.png'
+import bgImage from '@/hero-bg.png'
 
 export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[55vh] md:min-h-[90vh] flex items-start md:items-center overflow-hidden border-b border-border/60"
+      className="relative min-h-[55vh] md:min-h-[90vh] flex items-start md:items-center overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -21,13 +21,15 @@ export function HeroSection() {
         />
         {/* Subtle overlay just in case */}
         <div className="absolute inset-0 bg-background/20"></div>
+        {/* Gradient fade to blend with the next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent"></div>
       </div>
 
       <div className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 pt-16 pb-12 md:py-32 z-10">
-        
+
         {/* Text Content */}
         <div className="max-w-3xl text-left select-none">
-          
+
           {/* Supertext */}
           <div className="flex items-center gap-4 mb-6">
             <div className="relative flex items-center w-12 h-2">
@@ -40,7 +42,7 @@ export function HeroSection() {
               {/* Track line */}
               <div className="absolute w-full h-[1px] bg-gradient-to-r from-[#007BFF]/10 via-[#007BFF]/50 to-[#007BFF]/10 rounded-full"></div>
               {/* Moving Droplet */}
-              <div 
+              <div
                 className="absolute h-1.5 w-1.5 rounded-full bg-[#007BFF] shadow-[0_0_10px_2px_rgba(0,123,255,0.8)]"
                 style={{ animation: 'droplet-move 2s ease-in-out infinite' }}
               />

@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import profilePhoto from '../kaynã.png'
 import { Button } from '@/components/ui/button'
 
 const navLinks = [
@@ -160,24 +158,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="w-full flex h-16 items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32">
-        <Link href="#home" className="group flex items-center gap-3">
-          <div className="relative flex-shrink-0">
-            <div className="h-9 w-9 rounded-full overflow-hidden ring-2 ring-primary/40 shadow-lg shadow-primary/20 transition-all duration-300 group-hover:ring-primary/70 group-hover:shadow-primary/40">
-              <Image
-                src={profilePhoto}
-                alt="Kaynã Viana"
-                width={36}
-                height={36}
-                className="h-full w-full object-cover object-top"
-                priority
-              />
-            </div>
-            <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-primary border-2 border-background shadow shadow-primary/60" />
-          </div>
-          <span className="font-mono text-sm font-semibold tracking-tight">
-            Kaynã<span className="text-primary"> Viana</span>
-          </span>
-        </Link>
+
 
         <nav aria-label="Navegação principal" className="hidden md:block">
           <ul className="flex items-center gap-8">
