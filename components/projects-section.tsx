@@ -56,7 +56,7 @@ const projects: Project[] = [
     icon: Store,
     stack: ['Estoque', 'Financeiro', 'WhatsApp'],
     image: '/dashboard_erp_real.jpg',
-    imagePosition: 'object-top',
+    imagePosition: 'object-center',
   },
   {
     title: 'Sistemas Corporativos Sob Medida',
@@ -65,7 +65,7 @@ const projects: Project[] = [
     icon: Building2,
     stack: ['Sob Medida', 'Gestão', 'Escala'],
     image: '/dashboard_corporativo_real.jpg',
-    imagePosition: 'object-top',
+    imagePosition: 'object-center',
   },
   {
     title: 'Dashboard de Métricas de Performance',

@@ -23,9 +23,9 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section id="sobre" className="relative py-12 md:py-24">
+    <section id="sobre" className="relative py-24 md:py-40 bg-background">
       <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="order-2 lg:order-1 relative aspect-square md:aspect-[4/5] lg:aspect-square overflow-hidden rounded-2xl border border-border/50 bg-card/50 shadow-2xl">
             <Image
               src="/about_foto.jpg"
@@ -38,16 +38,16 @@ export function AboutSection() {
           </div>
 
           <div className="order-1 lg:order-2 flex flex-col justify-center">
-            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary w-fit mb-6">
-              Sobre Mim
+            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[13px] font-bold tracking-[0.2em] uppercase text-primary w-fit mb-8">
+              O Arquiteto
             </div>
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-balance mb-6">
-              De desenvolvedor a arquiteto de soluções completas
+            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-balance mb-8 text-white">
+              De desenvolvedor a arquiteto de <span className="text-primary">soluções de ponta</span>
             </h2>
             
-            <div className="space-y-6 text-muted-foreground leading-relaxed text-pretty">
+            <div className="space-y-6 text-slate-400 text-lg leading-relaxed text-pretty">
               <p>
-                Desde que comecei a programar, minha pergunta favorita sempre foi: &quot;E se eu pudesse automatizar isso?&quot;. Meu nome é Kaynã, tenho 20 anos e transformei a curiosidade em minha principal ferramenta de trabalho.
+                Desde que comecei a programar, minha pergunta favorita sempre foi: &quot;E se eu pudesse automatizar isso?&quot;. Meu nome é Kaynã, tenho 20 anos e transformei a curiosidade em minha principal ferramenta de trabalho para desenhar <span className="text-white font-medium">estruturas tecnológicas escaláveis</span>.
               </p>
               
               <div 
@@ -56,17 +56,17 @@ export function AboutSection() {
                 }`}
               >
                 <p>
-                  Enquanto muitos veem a internet como um conjunto de páginas, eu a vejo como uma fonte infinita de dados e processos que podem ser otimizados. Me especializei em navegar por sites complexos, contornar barreiras técnicas e transformar tarefas manuais exaustivas em processos automáticos que rodam com um único clique.
+                  Enquanto muitos veem a internet como um conjunto de páginas, eu a vejo como uma fonte infinita de dados e processos que podem ser otimizados. Me especializei em navegar por sistemas complexos, contornar barreiras técnicas e transformar fluxos exaustivos em <span className="text-white font-medium">processos automáticos</span> que rodam com máxima <span className="text-primary font-medium">eficiência e precisão</span>.
                 </p>
                 <p>
-                  Para mim, programar não é apenas digitar linhas de código, é criar autonomia e eficiência. Meu portfólio reflete essa jornada: projetos que nasceram de problemas reais e foram resolvidos com lógica, persistência e a vontade de fazer as coisas funcionarem de forma mais inteligente.
+                  Para mim, programar não é apenas digitar linhas de código, é <span className="text-white font-medium">criar autonomia e escala operacional</span>. Meu portfólio reflete essa jornada: arquiteturas que nasceram de problemas reais de negócio e foram resolvidas com lógica, persistência e foco no resultado final.
                 </p>
               </div>
             </div>
 
             <button 
               onClick={() => setIsExpanded(!isExpanded)}
-              className="mt-6 md:hidden text-[#007BFF] hover:text-[#0056b3] font-medium transition-colors inline-flex items-center gap-1.5 self-start"
+              className="mt-8 md:hidden text-primary hover:text-primary/80 font-bold transition-colors inline-flex items-center gap-1.5 self-start text-sm uppercase tracking-wide"
             >
               {isExpanded ? 'Mostrar menos' : 'Ler mais'}
               <svg 

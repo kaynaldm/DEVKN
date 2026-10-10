@@ -59,24 +59,27 @@ function InventoryIcon(props: React.SVGProps<SVGSVGElement>) {
 const services = [
   {
     id: '01',
-    title: 'Desenvolvimento de Sistemas e MVPs',
+    title: 'Engenharia de Sistemas High-End',
     description:
-      'Criamos aplicações web personalizadas, escaláveis e seguras, integrando interfaces modernas com bancos de dados robustos e dashboards inteligentes.',
+      'Arquiteturas escaláveis e APIs de alta performance, projetadas para suportar o crescimento da sua operação sem gargalos tecnológicos.',
     icon: SystemIcon,
+    cta: 'Consultar Arquitetura',
   },
   {
     id: '02',
-    title: 'Automação de Processos e Bots',
+    title: 'Automação & RPAs',
     description:
-      'Desenvolvemos robôs e integrações que automatizam tarefas repetitivas, coletam dados e conectam sistemas para aumentar a eficiência do seu negócio.',
+      'Redução de custos operacionais através de robôs que assumem tarefas repetitivas com precisão absoluta e integração nativa.',
     icon: BotWorkflowIcon,
+    cta: 'Descobrir Automações',
   },
   {
     id: '03',
-    title: 'Soluções Administrativas e de Estoque',
+    title: 'Gestão Inteligente & ERP',
     description:
-      'Sistemas completos para gestão de estoque, vendas e operações, com relatórios precisos e controle financeiro na palma da mão.',
+      'Dashboards e ERPs sob medida que transformam dados complexos em insights acionáveis para tomadas de decisão rápidas.',
     icon: InventoryIcon,
+    cta: 'Solicitar Demonstração',
   },
 ]
 
@@ -85,16 +88,16 @@ import bgImage from '@/imagem de fundo.png'
 
 export function ExpertiseSection() {
   return (
-    <section id="expertise" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="expertise" className="relative py-32 md:py-48 overflow-hidden bg-background">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src={bgImage}
           alt="Plano de Fundo"
           fill
-          className="object-cover object-center opacity-40"
+          className="object-cover object-center opacity-30"
         />
-        <div className="absolute inset-0 bg-background/60"></div>
+        <div className="absolute inset-0 bg-background/70"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
       </div>
 
@@ -102,55 +105,57 @@ export function ExpertiseSection() {
         <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-24">
           
           {/* Esquerda: Sticky Header & Illustration */}
-          <div className="lg:sticky lg:top-32 lg:w-[45%] flex flex-col">
-            <span className="text-[12px] font-semibold tracking-[0.15em] text-[#007BFF] uppercase mb-4">
+          <div className="lg:sticky lg:top-32 lg:w-[40%] flex flex-col">
+            <span className="text-[12px] font-semibold tracking-[0.2em] text-primary uppercase mb-6 block">
               Nossas Soluções
             </span>
-            <h2 className="text-balance text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.1]">
-              Tecnologia que <br/> transforma ideias <br/> <span className="text-[#007BFF]">em resultados.</span>
+            <h2 className="text-balance text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+              Tecnologia que <br/> transforma ideias <br/> <span className="text-primary">em resultados.</span>
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-slate-400 max-w-md">
-              Soluções digitais inteligentes e automação prática para otimizar processos, reduzir custos e acelerar o crescimento do seu negócio.
+            <p className="mt-6 text-lg leading-relaxed text-slate-400 max-w-md">
+              Soluções digitais <span className="text-white font-medium">inteligentes</span> e automação prática para otimizar processos, reduzir custos e acelerar o crescimento do seu negócio.
             </p>
-
-
-
-
           </div>
 
           {/* Direita: Módulos de Serviço (Cards) */}
-          <div className="flex flex-col gap-6 lg:w-[55%]">
+          <div className="flex flex-col gap-8 lg:w-[60%]">
             {services.map((service) => {
               const Icon = service.icon
               return (
                 <div
                   key={service.id}
-                  className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-6 rounded-2xl border border-slate-800/60 bg-[#06101c]/60 p-6 sm:p-8 hover:bg-[#081525] hover:border-[#007BFF]/30 transition-all duration-300 overflow-hidden"
+                  className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-8 rounded-2xl border border-border/50 bg-card/60 p-8 hover:bg-card/90 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
                 >
                   {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#007BFF]/0 via-[#007BFF]/0 to-[#007BFF]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/0 to-primary/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  <div className="flex items-start gap-4 sm:gap-6 flex-1 z-10">
+                  <div className="flex items-start gap-6 flex-1 z-10">
                     <div className="flex flex-col items-center gap-4 mt-1">
-                      <span className="text-sm font-bold text-[#007BFF] bg-[#007BFF]/10 px-2 py-1 rounded">
+                      <span className="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
                         {service.id}
                       </span>
-                      <div className="hidden sm:block w-px h-16 bg-slate-800/80"></div>
+                      <div className="hidden sm:block w-px h-20 bg-border/80 group-hover:bg-primary/20 transition-colors duration-500"></div>
                     </div>
                     
-                    <div className="flex flex-col gap-2">
-                      <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-white">
+                    <div className="flex flex-col gap-3">
+                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                         {service.title}
                       </h3>
-                      <p className="text-sm sm:text-base leading-relaxed text-slate-400">
+                      <p className="text-base leading-relaxed text-slate-400 mb-2">
                         {service.description}
                       </p>
+                      <Button variant="link" asChild className="p-0 h-auto text-primary hover:text-white justify-start font-semibold group/btn transition-colors duration-300">
+                        <Link href="#contato" className="flex items-center gap-1.5">
+                          {service.cta}
+                          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                   
-                  <div className="shrink-0 z-10 self-start sm:self-center">
-                    <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-slate-700/50 bg-[#0a1628] group-hover:border-[#007BFF]/50 group-hover:shadow-[0_0_25px_rgba(0,123,255,0.2)] transition-all duration-300">
-                      <Icon className="h-8 w-8 sm:h-10 sm:w-10 text-[#007BFF]" aria-hidden="true" />
+                  <div className="shrink-0 z-10 self-start sm:self-center mt-2 sm:mt-0">
+                    <div className="flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-border/50 bg-background/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500">
+                      <Icon className="h-8 w-8 sm:h-12 sm:w-12 text-primary/80 group-hover:text-primary transition-colors duration-500" aria-hidden="true" />
                     </div>
                   </div>
                 </div>
@@ -163,3 +168,4 @@ export function ExpertiseSection() {
     </section>
   )
 }
+
