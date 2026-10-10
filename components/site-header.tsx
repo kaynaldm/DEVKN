@@ -156,7 +156,7 @@ function RobotLogo() {
 
 export function SiteHeader() {
   return (
-    <header className="hidden md:block sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+    <header className="hidden md:block fixed top-0 left-0 w-full z-50 bg-transparent">
       <div className="w-full flex h-16 items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32">
 
 
