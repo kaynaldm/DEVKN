@@ -61,9 +61,9 @@ export function HeroSection() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-sans text-[32px] sm:text-[42px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tighter">
-            <span className="block text-white mb-2">Sistemas inteligentes para</span>
-            <span className="text-primary">acelerar</span> <span className="text-white">seu crescimento<span className="text-primary">.</span></span>
+          <h1 className="font-sans text-[36px] sm:text-[50px] lg:text-[68px] font-extrabold leading-[1.05] tracking-tighter">
+            <span className="text-white">Sistemas </span>
+            <span className="text-primary">inteligentes<span className="text-primary">.</span></span>
           </h1>
 
           {/* Paragraph */}
