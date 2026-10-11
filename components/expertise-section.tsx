@@ -138,7 +138,7 @@ const services: Service[] = [
   },
   {
     id: '02',
-    title: 'Chatbots & Atendimento WhatsApp 24/7',
+    title: 'Chatbots & Atendimento WhatsApp',
     description:
       'Atendentes virtuais no WhatsApp oficial que respondem instantaneamente, tiram dúvidas, enviam cardápios/orçamentos e fecham agendamentos no piloto automático.',
     icon: MessageSquareCode,
