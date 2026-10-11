@@ -947,9 +947,9 @@ export function ExpertiseSection() {
   }, [selectedService])
 
   return (
-    <section id="expertise" className="relative py-32 md:py-48 overflow-hidden bg-background">
+    <section id="expertise" className="relative py-32 md:py-48 bg-background">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src={bgImage}
           alt="Plano de Fundo"
@@ -964,7 +964,7 @@ export function ExpertiseSection() {
         <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-24">
           
           {/* Esquerda: Sticky Header & Illustration */}
-          <div className="lg:sticky lg:top-32 lg:w-[40%] flex flex-col">
+          <div className="lg:sticky lg:top-28 lg:self-start lg:w-[40%] flex flex-col">
             <span className="text-[10px] font-semibold tracking-[0.2em] text-primary uppercase mb-6 block">
               Nossas Soluções
             </span>
