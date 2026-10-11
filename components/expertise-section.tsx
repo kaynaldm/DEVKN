@@ -977,7 +977,37 @@ export function ExpertiseSection() {
           </div>
 
           {/* Direita: Módulos de Serviço (Cards) */}
-          <div className="flex flex-col gap-8 lg:w-[60%]">
+          <div className="flex flex-col gap-4 sm:gap-8 lg:w-[60%]">
+            <style>{`
+              @keyframes btn-oscillate-exp {
+                0%, 100% {
+                  border-color: rgba(34, 211, 238, 0.5);
+                  background-color: rgba(34, 211, 238, 0.12);
+                  box-shadow: inset 0 0 10px rgba(34, 211, 238, 0.35);
+                  color: #e0f2fe;
+                }
+                50% {
+                  border-color: rgba(0, 123, 255, 0.85);
+                  background-color: rgba(0, 123, 255, 0.32);
+                  box-shadow: inset 0 0 14px rgba(0, 123, 255, 0.55);
+                  color: #ffffff;
+                }
+              }
+              @keyframes icon-pulse-exp {
+                0%, 100% {
+                  color: #22d3ee;
+                }
+                50% {
+                  color: #60a5fa;
+                }
+              }
+              .animate-oscillate-exp {
+                animation: btn-oscillate-exp 2.2s ease-in-out infinite;
+              }
+              .animate-icon-pulse-exp {
+                animation: icon-pulse-exp 2.2s ease-in-out infinite;
+              }
+            `}</style>
             {visibleServices.map((service) => {
               const Icon = service.icon
               const whatsappUrl = `https://wa.me/5592974005948?text=${encodeURIComponent(
@@ -987,84 +1017,65 @@ export function ExpertiseSection() {
               return (
                 <div
                   key={service.id}
-                  className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-8 rounded-2xl border border-border/50 bg-card/60 p-8 hover:bg-card/90 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
+                  className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-2xl border border-border/50 bg-card/60 p-5 sm:p-8 hover:bg-card/90 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
                 >
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/0 to-primary/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  <div className="flex items-start gap-6 flex-1 z-10">
-                    <div className="flex flex-col items-center gap-4 mt-1">
-                      <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-                        {service.id}
-                      </span>
-                      <div className="hidden sm:block w-px h-20 bg-border/80 group-hover:bg-primary/20 transition-colors duration-500"></div>
+                  {/* Top Bar no Mobile: ID na esquerda + Ícone compacto na direita */}
+                  <div className="flex sm:hidden items-center justify-between w-full z-10">
+                    <span className="text-[11px] font-bold text-primary bg-primary/10 border border-primary/25 px-2.5 py-1 rounded-md">
+                      {service.id}
+                    </span>
+                    <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-primary/5 group-hover:border-primary/40 group-hover:bg-primary/10 transition-colors">
+                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} aria-hidden="true" />
                     </div>
-                    
-                    <div className="flex flex-col gap-3">
-                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-slate-400 mb-2">
-                        {service.description}
-                      </p>
+                  </div>
 
-                      {/* Botões de Ação: Saber Mais + WhatsApp */}
-                      <div className="flex flex-wrap items-center gap-4 pt-1">
-                        <style>{`
-                          @keyframes btn-oscillate-exp {
-                            0%, 100% {
-                              border-color: rgba(34, 211, 238, 0.5);
-                              background-color: rgba(34, 211, 238, 0.12);
-                              box-shadow: inset 0 0 10px rgba(34, 211, 238, 0.35);
-                              color: #e0f2fe;
-                            }
-                            50% {
-                              border-color: rgba(0, 123, 255, 0.85);
-                              background-color: rgba(0, 123, 255, 0.32);
-                              box-shadow: inset 0 0 14px rgba(0, 123, 255, 0.55);
-                              color: #ffffff;
-                            }
-                          }
-                          @keyframes icon-pulse-exp {
-                            0%, 100% {
-                              color: #22d3ee;
-                            }
-                            50% {
-                              color: #60a5fa;
-                            }
-                          }
-                          .animate-oscillate-exp {
-                            animation: btn-oscillate-exp 2.2s ease-in-out infinite;
-                          }
-                          .animate-icon-pulse-exp {
-                            animation: icon-pulse-exp 2.2s ease-in-out infinite;
-                          }
-                        `}</style>
-                        <button
-                          type="button"
-                          onClick={() => setSelectedService(service)}
-                          className="animate-oscillate-exp overflow-hidden inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border font-medium text-xs transition-transform duration-300 hover:scale-105 active:scale-95"
-                        >
-                          <Info className="animate-icon-pulse-exp h-3.5 w-3.5 shrink-0" />
-                          <span>Saber mais</span>
-                        </button>
+                  {/* ID + Linha divisória vertical (Apenas Desktop) */}
+                  <div className="hidden sm:flex flex-col items-center gap-4 mt-1 z-10">
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+                      {service.id}
+                    </span>
+                    <div className="w-px h-20 bg-border/80 group-hover:bg-primary/20 transition-colors duration-500"></div>
+                  </div>
+                  
+                  {/* Conteúdo de Texto e Ações */}
+                  <div className="flex flex-col gap-2 sm:gap-3 flex-1 z-10 w-full">
+                    <h3 className="text-base sm:text-xl font-bold tracking-tight text-white leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-400">
+                      {service.description}
+                    </p>
 
-                        <a
-                          href={whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-white transition-colors duration-300 group/link"
-                        >
-                          <span>{service.cta}</span>
-                          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                        </a>
-                      </div>
+                    {/* Botões de Ação: Saber Mais + WhatsApp */}
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedService(service)}
+                        className="animate-oscillate-exp overflow-hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border font-medium text-xs transition-transform duration-300 hover:scale-105 active:scale-95"
+                      >
+                        <Info className="animate-icon-pulse-exp h-3.5 w-3.5 shrink-0" />
+                        <span>Saber mais</span>
+                      </button>
+
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-white transition-colors duration-300 group/link"
+                      >
+                        <span>{service.cta}</span>
+                        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      </a>
                     </div>
                   </div>
                   
-                  <div className="shrink-0 z-10 self-start sm:self-center mt-2 sm:mt-0">
-                    <div className="flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-border/50 bg-background/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500">
-                      <Icon className="h-8 w-8 sm:h-12 sm:w-12 text-primary/80 group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} aria-hidden="true" />
+                  {/* Ícone Redondo Grande (Apenas Desktop) */}
+                  <div className="hidden sm:flex shrink-0 z-10 self-center">
+                    <div className="flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 rounded-full border border-border/50 bg-background/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500">
+                      <Icon className="h-10 w-10 lg:h-12 lg:w-12 text-primary/80 group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                   </div>
                 </div>
