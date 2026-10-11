@@ -20,7 +20,7 @@ const projects: Project[] = [
     icon: Scissors,
     stack: ['Agendamentos', 'Planos', 'Gestão'],
     image: '/barbearia_foto_real.jpg',
-    imagePosition: 'object-top',
+    imagePosition: 'object-center',
   },
   {
     title: 'Gestão de Mandato & Política',
@@ -28,8 +28,8 @@ const projects: Project[] = [
       'Plataforma estratégica para acompanhamento de demandas, controle de agendas e automação de postagens em redes sociais.',
     icon: Megaphone,
     stack: ['Agendas', 'Demandas', 'Automação'],
-    image: '/dashboard_politica_brasil.jpg',
-    imagePosition: 'object-top',
+    image: '/dashboard_politica_novo.jpg',
+    imagePosition: 'object-center',
   },
   {
     title: 'Motor de Achadinhos (Afiliados)',
@@ -90,10 +90,10 @@ export function ProjectsSection() {
     <section id="projetos" className="py-12 md:py-24">
       <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
         <div className="mb-14 max-w-2xl">
-          <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="text-balance text-2xl font-bold tracking-tight md:text-3xl">
             Projetos que resolvem problemas reais
           </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+          <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
             Uma seleção de sistemas customizados construídos para escala,
             confiabilidade e manutenção a longo prazo.
           </p>
@@ -105,7 +105,7 @@ export function ProjectsSection() {
             return (
               <article
                 key={project.title}
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:glow-teal"
+                className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:glow-teal select-none"
               >
                 <div className="relative aspect-video w-full border-b border-border/60">
                   <Image
@@ -123,10 +123,10 @@ export function ProjectsSection() {
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-semibold tracking-tight">
+                  <h3 className="text-sm sm:text-base font-semibold tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
 
@@ -134,7 +134,7 @@ export function ProjectsSection() {
                     {project.stack.map((tech) => (
                       <li
                         key={tech}
-                        className="rounded-md border border-border bg-secondary/50 px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+                        className="rounded-md border border-border bg-secondary/50 px-2 py-0.5 font-mono text-[9px] text-muted-foreground"
                       >
                         {tech}
                       </li>
@@ -146,7 +146,7 @@ export function ProjectsSection() {
                     onClick={(e) => handleProjectClick(e, project.title)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-1.5 self-start text-sm font-medium text-primary transition-colors hover:text-foreground"
+                    className="mt-6 inline-flex items-center gap-1.5 self-start text-xs font-medium text-primary transition-colors hover:text-foreground"
                   >
                     Quero esse sistema
                     <ArrowUpRight

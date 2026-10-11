@@ -106,13 +106,13 @@ export function ExpertiseSection() {
           
           {/* Esquerda: Sticky Header & Illustration */}
           <div className="lg:sticky lg:top-32 lg:w-[40%] flex flex-col">
-            <span className="text-[12px] font-semibold tracking-[0.2em] text-primary uppercase mb-6 block">
+            <span className="text-[10px] font-semibold tracking-[0.2em] text-primary uppercase mb-6 block">
               Nossas Soluções
             </span>
-            <h2 className="text-balance text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+            <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.1]">
               Tecnologia que <br/> transforma ideias <br/> <span className="text-primary">em resultados.</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-slate-400 max-w-md">
+            <p className="mt-6 text-base leading-relaxed text-slate-400 max-w-md">
               Soluções digitais <span className="text-white font-medium">inteligentes</span> e automação prática para otimizar processos, reduzir custos e acelerar o crescimento do seu negócio.
             </p>
           </div>
@@ -131,17 +131,17 @@ export function ExpertiseSection() {
 
                   <div className="flex items-start gap-6 flex-1 z-10">
                     <div className="flex flex-col items-center gap-4 mt-1">
-                      <span className="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+                      <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
                         {service.id}
                       </span>
                       <div className="hidden sm:block w-px h-20 bg-border/80 group-hover:bg-primary/20 transition-colors duration-500"></div>
                     </div>
                     
                     <div className="flex flex-col gap-3">
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
                         {service.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-slate-400 mb-2">
+                      <p className="text-sm leading-relaxed text-slate-400 mb-2">
                         {service.description}
                       </p>
                       <Button variant="link" asChild className="p-0 h-auto text-primary hover:text-white justify-start font-semibold group/btn transition-colors duration-300">

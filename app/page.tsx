@@ -9,7 +9,7 @@ import { WhatsappButton } from '@/components/whatsapp-button'
 
 export default function Page() {
   return (
-    <div className="min-h-dvh bg-background">
+    <div className="min-h-dvh bg-background overflow-x-hidden">
       <SiteHeader />
       <main>
         <HeroSection />

@@ -166,7 +166,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-xs text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </Link>

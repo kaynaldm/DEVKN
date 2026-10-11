@@ -38,14 +38,14 @@ export function AboutSection() {
           </div>
 
           <div className="order-1 lg:order-2 flex flex-col justify-center">
-            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[13px] font-bold tracking-[0.2em] uppercase text-primary w-fit mb-8">
+            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] uppercase text-primary w-fit mb-8">
               O Arquiteto
             </div>
-            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-balance mb-8 text-white">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl text-balance mb-8 text-white">
               De desenvolvedor a arquiteto de <span className="text-primary">soluções de ponta</span>
             </h2>
             
-            <div className="space-y-6 text-slate-400 text-lg leading-relaxed text-pretty">
+            <div className="space-y-6 text-slate-400 text-base leading-relaxed text-pretty">
               <p>
                 Desde que comecei a programar, minha pergunta favorita sempre foi: &quot;E se eu pudesse automatizar isso?&quot;. Meu nome é Kaynã, tenho 20 anos e transformei a curiosidade em minha principal ferramenta de trabalho para desenhar <span className="text-white font-medium">estruturas tecnológicas escaláveis</span>.
               </p>
@@ -66,7 +66,7 @@ export function AboutSection() {
 
             <button 
               onClick={() => setIsExpanded(!isExpanded)}
-              className="mt-8 md:hidden text-primary hover:text-primary/80 font-bold transition-colors inline-flex items-center gap-1.5 self-start text-sm uppercase tracking-wide"
+              className="mt-8 md:hidden text-primary hover:text-primary/80 font-bold transition-colors inline-flex items-center gap-1.5 self-start text-xs uppercase tracking-wide"
             >
               {isExpanded ? 'Mostrar menos' : 'Ler mais'}
               <svg 

@@ -47,19 +47,19 @@ export function HeroSection() {
                 style={{ animation: 'droplet-move 2s ease-in-out infinite' }}
               />
             </div>
-            <span className="text-[12px] lg:text-[14px] font-bold tracking-[0.2em] text-primary uppercase">
+            <span className="text-[10px] lg:text-[12px] font-bold tracking-[0.2em] text-primary uppercase">
               Engenharia de Sistemas
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-sans text-[42px] sm:text-[56px] lg:text-[76px] font-extrabold leading-[1.05] tracking-tighter">
+          <h1 className="font-sans text-[32px] sm:text-[42px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tighter">
             <span className="block text-white mb-2">Arquitetura que</span>
             <span className="text-primary">escala</span> <span className="text-white">o seu negócio<span className="text-primary">.</span></span>
           </h1>
 
           {/* Paragraph */}
-          <p className="mt-8 max-w-2xl text-[16px] lg:text-[18px] font-medium leading-[1.7] text-slate-400">
+          <p className="mt-8 max-w-2xl text-[14px] lg:text-[16px] font-medium leading-[1.7] text-slate-400">
             Sistemas <span className="text-white">robustos</span>, automações <span className="text-white">inteligentes</span> e gestão de dados orientada a <span className="text-primary">alta performance</span> e resultados concretos.
           </p>
 
@@ -67,7 +67,7 @@ export function HeroSection() {
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-5">
             <Button
               asChild
-              className="group bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 sm:h-16 text-[15px] lg:text-[16px] font-bold transition-all shadow-lg shadow-primary/25 border-none w-full sm:w-auto"
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 sm:h-14 text-[13px] lg:text-[14px] font-bold transition-all shadow-lg shadow-primary/25 border-none w-full sm:w-auto"
             >
               <Link href="#projetos" className="flex items-center justify-center whitespace-nowrap">
                 Consultar Soluções
