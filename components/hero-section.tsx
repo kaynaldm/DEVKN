@@ -1,10 +1,18 @@
-import Link from 'next/link'
+'use client'
+
 import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import bgImage from '@/hero-bg.png'
 
 export function HeroSection() {
+  const handleScrollToProjects = () => {
+    const target = document.getElementById('projetos')
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      window.history.pushState(null, '', '#projetos')
+    }
+  }
+
   return (
     <section
       id="home"
@@ -54,8 +62,8 @@ export function HeroSection() {
 
           {/* Heading */}
           <h1 className="font-sans text-[32px] sm:text-[42px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tighter">
-            <span className="block text-white mb-2">Arquitetura que</span>
-            <span className="text-primary">escala</span> <span className="text-white">o seu negócio<span className="text-primary">.</span></span>
+            <span className="block text-white mb-2">Sistemas inteligentes para</span>
+            <span className="text-primary">acelerar</span> <span className="text-white">seu crescimento<span className="text-primary">.</span></span>
           </h1>
 
           {/* Paragraph */}
@@ -65,18 +73,17 @@ export function HeroSection() {
 
           {/* Buttons */}
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-5">
-            <Button
-              asChild
-              className="group bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 sm:h-14 text-[13px] lg:text-[14px] font-bold transition-all shadow-lg shadow-primary/25 border-none w-full sm:w-auto"
+            <button
+              type="button"
+              onClick={handleScrollToProjects}
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 sm:h-14 text-[13px] lg:text-[14px] font-bold transition-all shadow-lg shadow-primary/25 border-none w-full sm:w-auto cursor-pointer inline-flex items-center justify-center whitespace-nowrap active:scale-[0.98]"
             >
-              <Link href="#projetos" className="flex items-center justify-center whitespace-nowrap">
-                Consultar Soluções
-                <ArrowRight
-                  className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-            </Button>
+              Consultar Soluções
+              <ArrowRight
+                className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </button>
           </div>
 
         </div>

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
@@ -155,6 +157,18 @@ function RobotLogo() {
 }
 
 export function SiteHeader() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const targetId = href.substring(1)
+      const target = document.getElementById(targetId)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        window.history.pushState(null, '', href)
+      }
+    }
+  }
+
   return (
     <header className="hidden md:block fixed top-0 left-0 w-full z-50 bg-transparent">
       <div className="w-full flex h-16 items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32">
@@ -164,12 +178,13 @@ export function SiteHeader() {
           <ul className="flex items-center justify-end gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link
+                <a
                   href={link.href}
-                  className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-xs text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
                 >
                   {link.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
