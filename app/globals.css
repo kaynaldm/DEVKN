@@ -242,30 +242,22 @@
   }
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 html.custom-cursor-active,
 html.custom-cursor-active * {
   cursor: none !important;
 }
 
 /* ═══════════════════════════════════════════════
-   Preloader Screen Lock (Zero Scrollbar PC & Mobile)
+   Preloader Screen Lock (Zero Jitter, Zero Layout Shift)
    ═══════════════════════════════════════════════ */
 html.preloader-active,
-html.preloader-active body {
+body.preloader-active {
   overflow: hidden !important;
-  height: 100vh !important;
-  height: 100dvh !important;
-  max-height: 100vh !important;
-  max-height: 100dvh !important;
   touch-action: none !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
 }
 
-html.preloader-active::-webkit-scrollbar,
-html.preloader-active body::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
 

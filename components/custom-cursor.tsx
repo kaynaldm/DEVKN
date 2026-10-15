@@ -30,7 +30,7 @@ export function CustomCursor() {
       mousePos.current.x = e.clientX
       mousePos.current.y = e.clientY
 
-      if (!isVisible) setIsVisible(true)
+      setIsVisible((prev) => (prev ? prev : true))
 
       // Direct zero-latency hardware update on inner dot
       if (dotRef.current) {
@@ -87,7 +87,7 @@ export function CustomCursor() {
       window.removeEventListener('mouseover', handleMouseOver)
       if (rafId.current) cancelAnimationFrame(rafId.current)
     }
-  }, [isVisible])
+  }, [])
 
   if (!isEnabled) return null
 
