@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { MessageCircle, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { ScrollReveal } from '@/components/scroll-reveal'
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -34,14 +35,17 @@ const socials = [
 
 export function ContactFooter() {
   return (
-    <footer id="contato" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute -bottom-32 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
-
-      <div className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24 flex flex-col items-start justify-start text-left">
-        <h2 className="text-balance text-2xl font-bold tracking-tight md:text-3xl">
+    <footer id="contato" className="relative overflow-hidden border-t border-border">
+      <ScrollReveal
+        direction="up"
+        distance={28}
+        duration={700}
+        className="relative w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24 flex flex-col items-start justify-start text-left"
+      >
+        <h2 className="text-balance text-2xl font-bold tracking-tight md:text-3xl text-white">
           Pronto para automatizar e escalar suas operações?
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-slate-300 max-w-xl">
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-xl">
           Conte seu desafio e eu retorno com uma proposta técnica clara para o
           seu próximo sistema.
         </p>
@@ -50,14 +54,14 @@ export function ContactFooter() {
           <Button
             asChild
             size="lg"
-            className="group bg-[#007BFF] text-white hover:bg-[#0056b3] rounded-full px-8 h-10 sm:h-12 text-[12px] lg:text-[14px] font-medium transition-all shadow-[0_0_30px_rgba(0,123,255,0.25)] border-none w-full sm:w-auto"
+            className="group bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-10 sm:h-12 text-[12px] lg:text-[14px] font-medium transition-all border border-border w-full sm:w-auto"
           >
             <a href="https://wa.me/5592974005948?text=Ol%C3%A1%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20sobre%20a%20constru%C3%A7%C3%A3o%20de%20um%20sistema." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center whitespace-nowrap">
               Solicitar Proposta Técnica
             </a>
           </Button>
         </div>
-      </div>
+      </ScrollReveal>
     </footer>
   )
 }

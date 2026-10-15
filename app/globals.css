@@ -48,53 +48,61 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* ═══════════════════════════════════════════════
+   Industrial High-Tech Palette
+   ═══════════════════════════════════════════════ */
 :root {
   color-scheme: dark;
 
-  --background: oklch(0.14 0.02 245);
-  --foreground: oklch(0.98 0.01 220);
+  /* Background: #0D0F12 */
+  --background: #0D0F12;
+  --foreground: #FFFFFF;
 
-  --card: oklch(0.18 0.025 245);
-  --card-foreground: oklch(0.98 0.01 220);
+  /* Card: slightly lifted from body */
+  --card: #13151A;
+  --card-foreground: #FFFFFF;
 
-  --popover: oklch(0.18 0.025 245);
-  --popover-foreground: oklch(0.98 0.01 220);
+  --popover: #13151A;
+  --popover-foreground: #FFFFFF;
 
-  /* Bright blue primary (matching text-blue-500/600) */
-  --primary: oklch(0.55 0.18 255);
-  --primary-foreground: oklch(0.98 0.01 220);
+  /* Primary/Accent: #E2E8F0 (cool slate white) */
+  --primary: #E2E8F0;
+  --primary-foreground: #0D0F12;
 
-  --secondary: oklch(0.22 0.03 245);
-  --secondary-foreground: oklch(0.98 0.01 220);
+  --secondary: #161820;
+  --secondary-foreground: #E2E8F0;
 
-  --muted: oklch(0.20 0.025 245);
-  --muted-foreground: oklch(0.70 0.02 245);
+  /* Muted text: #94A3B8 */
+  --muted: #161820;
+  --muted-foreground: #94A3B8;
 
-  --accent: oklch(0.55 0.18 255);
-  --accent-foreground: oklch(0.98 0.01 220);
+  /* Accent mirrors primary */
+  --accent: #E2E8F0;
+  --accent-foreground: #0D0F12;
 
-  --destructive: oklch(0.63 0.22 25);
+  --destructive: #EF4444;
 
-  --border: oklch(0.26 0.03 245);
-  --input: oklch(0.26 0.03 245);
-  --ring: oklch(0.55 0.18 255);
+  /* Borders/Dividers: #1E293B */
+  --border: #1E293B;
+  --input: #1E293B;
+  --ring: #E2E8F0;
 
-  --chart-1: oklch(0.55 0.18 255);
-  --chart-2: oklch(0.66 0.16 280);
-  --chart-3: oklch(0.72 0.12 160);
-  --chart-4: oklch(0.6 0.14 280);
-  --chart-5: oklch(0.78 0.1 210);
+  --chart-1: #E2E8F0;
+  --chart-2: #94A3B8;
+  --chart-3: #64748B;
+  --chart-4: #475569;
+  --chart-5: #334155;
 
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 
-  --sidebar: oklch(0.16 0.025 245);
-  --sidebar-foreground: oklch(0.98 0.01 220);
-  --sidebar-primary: oklch(0.55 0.18 255);
-  --sidebar-primary-foreground: oklch(0.98 0.01 220);
-  --sidebar-accent: oklch(0.22 0.03 245);
-  --sidebar-accent-foreground: oklch(0.98 0.01 220);
-  --sidebar-border: oklch(0.26 0.03 245);
-  --sidebar-ring: oklch(0.55 0.18 255);
+  --sidebar: #0D0F12;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #E2E8F0;
+  --sidebar-primary-foreground: #0D0F12;
+  --sidebar-accent: #161820;
+  --sidebar-accent-foreground: #E2E8F0;
+  --sidebar-border: #1E293B;
+  --sidebar-ring: #E2E8F0;
 }
 
 @layer base {
@@ -109,7 +117,33 @@
   }
 }
 
+/* ═══════════════════════════════════════════════
+   Intro Stagger Animation System
+   ═══════════════════════════════════════════════ */
 @layer utilities {
+  @keyframes intro-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .intro-stagger {
+    opacity: 0;
+    animation: intro-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .intro-delay-0 { animation-delay: 0s; }
+  .intro-delay-1 { animation-delay: 0.1s; }
+  .intro-delay-2 { animation-delay: 0.2s; }
+  .intro-delay-3 { animation-delay: 0.3s; }
+  .intro-delay-4 { animation-delay: 0.4s; }
+  .intro-delay-5 { animation-delay: 0.5s; }
+
   @keyframes wave {
     0%, 100% { transform: rotate(0deg); }
     20% { transform: rotate(25deg); }
@@ -119,22 +153,6 @@
   }
   .animate-wave {
     animation: wave 1.5s ease-in-out infinite;
-  }
-  .glow-teal {
-    box-shadow: 0 0 0 1px oklch(0.82 0.13 185 / 0.3),
-      0 0 24px -6px oklch(0.82 0.13 185 / 0.45);
-  }
-  .text-glow {
-    text-shadow: 0 0 24px oklch(0.82 0.13 185 / 0.35);
-  }
-  .grid-bg {
-    background-image: linear-gradient(
-        to right,
-        oklch(0.75 0.05 200 / 0.06) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, oklch(0.75 0.05 200 / 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
   }
 
   @keyframes blob {
@@ -152,4 +170,102 @@
   .animation-delay-4000 {
     animation-delay: 4s;
   }
+
+  @keyframes lateral-beam-down {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes lateral-beam-up {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes border-beam-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes aura-breathe {
+    0%, 100% {
+      opacity: 0.35;
+      transform: scale(0.97);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.03);
+    }
+  }
+
+  .animate-lateral-down {
+    animation: lateral-beam-down 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .animate-lateral-up {
+    animation: lateral-beam-up 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.75s;
+  }
+
+  .animate-border-beam-spin {
+    animation: border-beam-spin 10s linear infinite;
+  }
+
+  .animate-aura-breathe {
+    animation: aura-breathe 7s ease-in-out infinite;
+  }
 }
+
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* ═══════════════════════════════════════════════
+   Preloader Screen Lock (Zero Scrollbar PC & Mobile)
+   ═══════════════════════════════════════════════ */
+html.preloader-active,
+html.preloader-active body {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
+  touch-action: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html.preloader-active::-webkit-scrollbar,
+html.preloader-active body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+

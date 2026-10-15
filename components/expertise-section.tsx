@@ -48,6 +48,7 @@ import {
   Radar,
 } from 'lucide-react'
 import bgImage from '@/imagem de fundo.png'
+import { ScrollReveal } from '@/components/scroll-reveal'
 
 function SystemIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -978,107 +979,81 @@ export function ExpertiseSection() {
 
           {/* Direita: Módulos de Serviço (Cards) */}
           <div className="flex flex-col gap-4 sm:gap-8 lg:w-[60%]">
-            <style>{`
-              @keyframes btn-oscillate-exp {
-                0%, 100% {
-                  border-color: rgba(34, 211, 238, 0.5);
-                  background-color: rgba(34, 211, 238, 0.12);
-                  box-shadow: inset 0 0 10px rgba(34, 211, 238, 0.35);
-                  color: #e0f2fe;
-                }
-                50% {
-                  border-color: rgba(0, 123, 255, 0.85);
-                  background-color: rgba(0, 123, 255, 0.32);
-                  box-shadow: inset 0 0 14px rgba(0, 123, 255, 0.55);
-                  color: #ffffff;
-                }
-              }
-              @keyframes icon-pulse-exp {
-                0%, 100% {
-                  color: #22d3ee;
-                }
-                50% {
-                  color: #60a5fa;
-                }
-              }
-              .animate-oscillate-exp {
-                animation: btn-oscillate-exp 2.2s ease-in-out infinite;
-              }
-              .animate-icon-pulse-exp {
-                animation: icon-pulse-exp 2.2s ease-in-out infinite;
-              }
-            `}</style>
-            {visibleServices.map((service) => {
+            {visibleServices.map((service, index) => {
               const Icon = service.icon
               const whatsappUrl = `https://wa.me/5592974005948?text=${encodeURIComponent(
                 `Olá! Tenho interesse na solução "${service.title}". Como podemos implementar isso no meu negócio?`
               )}`
+              const staggerDelay = (index % 3) * 80
 
               return (
-                <div
+                <ScrollReveal
                   key={service.id}
-                  className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-2xl border border-border/50 bg-card/60 p-5 sm:p-8 hover:bg-card/90 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
+                  delay={staggerDelay}
+                  distance={28}
+                  duration={600}
                 >
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/0 to-primary/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div
+                    className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-2xl border border-border bg-card p-5 sm:p-8 hover:border-primary/40 transition-colors duration-300 overflow-hidden"
+                  >
+                    {/* Top Bar no Mobile: ID na esquerda + Ícone compacto na direita */}
+                    <div className="flex sm:hidden items-center justify-between w-full z-10">
+                      <span className="text-[11px] font-bold text-primary bg-secondary border border-border px-2.5 py-1 rounded-md">
+                        {service.id}
+                      </span>
+                      <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-border bg-secondary group-hover:border-primary/40 transition-colors">
+                        <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} aria-hidden="true" />
+                      </div>
+                    </div>
 
-                  {/* Top Bar no Mobile: ID na esquerda + Ícone compacto na direita */}
-                  <div className="flex sm:hidden items-center justify-between w-full z-10">
-                    <span className="text-[11px] font-bold text-primary bg-primary/10 border border-primary/25 px-2.5 py-1 rounded-md">
-                      {service.id}
-                    </span>
-                    <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-primary/5 group-hover:border-primary/40 group-hover:bg-primary/10 transition-colors">
-                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} aria-hidden="true" />
+                    {/* ID + Linha divisória vertical (Apenas Desktop) */}
+                    <div className="hidden sm:flex flex-col items-center gap-4 mt-1 z-10">
+                      <span className="text-xs font-bold font-mono text-primary bg-secondary border border-border px-2 py-1 rounded">
+                        {service.id}
+                      </span>
+                      <div className="w-px h-20 bg-border transition-colors duration-500"></div>
+                    </div>
+                    
+                    {/* Conteúdo de Texto e Ações */}
+                    <div className="flex flex-col gap-2 sm:gap-3 flex-1 z-10 w-full">
+                      <h3 className="text-base sm:text-xl font-bold tracking-tight text-white leading-snug">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                        {service.description}
+                      </p>
+
+                      {/* Botões de Ação: Saber Mais + WhatsApp */}
+                      <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+                        <button
+                          type="button"
+                          onClick={() => setSelectedService(service)}
+                          className="overflow-hidden inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-border bg-transparent text-muted-foreground hover:text-white hover:border-primary/50 font-medium text-xs transition-colors duration-200"
+                        >
+                          <Info className="h-3.5 w-3.5 shrink-0" />
+                          <span>Saber mais</span>
+                        </button>
+
+                        <a
+                          href={whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-white transition-colors duration-200 group/link"
+                        >
+                          <span>{service.cta}</span>
+                          <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                        </a>
+                      </div>
+                    </div>
+                    
+                    {/* Ícone Redondo Grande (Apenas Desktop) */}
+                    <div className="hidden sm:flex shrink-0 z-10 self-center">
+                      <div className="flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 rounded-full border border-border bg-background group-hover:border-primary/40 transition-colors duration-300">
+                        <Icon className="h-10 w-10 lg:h-12 lg:w-12 text-primary/80 group-hover:text-primary transition-colors duration-300" strokeWidth={1.5} aria-hidden="true" />
+                      </div>
                     </div>
                   </div>
-
-                  {/* ID + Linha divisória vertical (Apenas Desktop) */}
-                  <div className="hidden sm:flex flex-col items-center gap-4 mt-1 z-10">
-                    <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-                      {service.id}
-                    </span>
-                    <div className="w-px h-20 bg-border/80 group-hover:bg-primary/20 transition-colors duration-500"></div>
-                  </div>
-                  
-                  {/* Conteúdo de Texto e Ações */}
-                  <div className="flex flex-col gap-2 sm:gap-3 flex-1 z-10 w-full">
-                    <h3 className="text-base sm:text-xl font-bold tracking-tight text-white leading-snug">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-400">
-                      {service.description}
-                    </p>
-
-                    {/* Botões de Ação: Saber Mais + WhatsApp */}
-                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
-                      <button
-                        type="button"
-                        onClick={() => setSelectedService(service)}
-                        className="animate-oscillate-exp overflow-hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border font-medium text-xs transition-transform duration-300 hover:scale-105 active:scale-95"
-                      >
-                        <Info className="animate-icon-pulse-exp h-3.5 w-3.5 shrink-0" />
-                        <span>Saber mais</span>
-                      </button>
-
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-white transition-colors duration-300 group/link"
-                      >
-                        <span>{service.cta}</span>
-                        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                      </a>
-                    </div>
-                  </div>
-                  
-                  {/* Ícone Redondo Grande (Apenas Desktop) */}
-                  <div className="hidden sm:flex shrink-0 z-10 self-center">
-                    <div className="flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 rounded-full border border-border/50 bg-background/50 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500">
-                      <Icon className="h-10 w-10 lg:h-12 lg:w-12 text-primary/80 group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} aria-hidden="true" />
-                    </div>
-                  </div>
-                </div>
+                </ScrollReveal>
               )
             })}
 
@@ -1093,7 +1068,7 @@ export function ExpertiseSection() {
                     setVisibleCount(5)
                   }
                 }}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-primary/40 bg-primary/10 hover:bg-primary/20 hover:border-primary text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-primary/15 active:scale-[0.98]"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-border bg-secondary hover:bg-secondary/80 hover:border-primary/40 text-white font-semibold text-xs tracking-wider uppercase transition-colors active:scale-[0.98]"
               >
                 <span>
                   {hasMore ? 'Mostrar mais' : 'Mostrar menos'}
@@ -1125,67 +1100,58 @@ export function ExpertiseSection() {
           />
 
           {/* Conteúdo do Modal */}
-          <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-primary/30 bg-[#091522] p-6 sm:p-8 shadow-2xl z-10 animate-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-border bg-[#13151A] p-6 sm:p-8 z-10 animate-in zoom-in-95 duration-200">
 
             {/* Cabeçalho do Modal */}
-            <div className="flex items-start gap-4 pr-10 mb-6">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/40 bg-primary/10 text-primary">
-                {(() => {
-                  const ModalIcon = selectedService.icon
-                  return <ModalIcon className="h-6 w-6" strokeWidth={1.75} />
-                })()}
-              </div>
-              <div>
-                <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase tracking-wider">
-                  Solução #{selectedService.id}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1.5 tracking-tight">
-                  {selectedService.title}
-                </h3>
-              </div>
+            <div className="mb-6">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                {selectedService.title}
+              </h3>
             </div>
 
             {/* Destaque Principal: Resumo Prático para o Cliente */}
-            <div className="rounded-xl border border-primary/40 bg-primary/10 p-4 sm:p-5 flex items-start gap-3.5 mb-6">
-              <Lightbulb className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-1">
+            <div className="rounded-xl border border-border/80 bg-secondary/70 p-4 sm:p-5 flex items-start gap-3.5 mb-6">
+              <div className="p-2 rounded-lg bg-primary/10 border border-border text-primary shrink-0 mt-0.5">
+                <Lightbulb className="h-4 w-4" />
+              </div>
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary text-primary-foreground text-[11px] sm:text-xs font-black uppercase tracking-wider mb-2.5 shadow-sm">
                   Resumo prático (o que isso faz pelo seu negócio)
-                </h4>
-                <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-medium">
+                </div>
+                <p className="text-sm sm:text-base text-white leading-relaxed font-medium">
                   {selectedService.simpleSummary}
                 </p>
               </div>
             </div>
 
             {/* Detalhes Adicionais */}
-            <div className="space-y-6 text-sm text-slate-300">
+            <div className="space-y-6 text-sm text-muted-foreground">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-2">
                   Como funciona na prática
                 </h4>
-                <p className="leading-relaxed text-slate-300 text-sm sm:text-base">
+                <p className="leading-relaxed text-muted-foreground text-sm sm:text-base">
                   {selectedService.overview}
                 </p>
               </div>
 
               {/* O que você recebe pronto */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
                   O que você recebe pronto
                 </h4>
                 <ul className="space-y-2.5">
                   {selectedService.deliverables.map((item, index) => (
                     <li key={index} className="flex items-start gap-2.5">
                       <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                      <span className="text-slate-300 leading-normal">{item}</span>
+                      <span className="text-muted-foreground leading-normal">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Impacto no Negócio */}
-              <div className="rounded-xl border border-primary/25 bg-primary/[0.08] p-4 flex items-start gap-3">
+              <div className="rounded-xl border border-border bg-secondary/50 p-4 flex items-start gap-3">
                 <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div>
                   <h5 className="text-xs font-bold uppercase tracking-wider text-primary mb-1">
@@ -1199,11 +1165,11 @@ export function ExpertiseSection() {
             </div>
 
             {/* Rodapé com Botão WhatsApp */}
-            <div className="mt-8 pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
               <button
                 type="button"
                 onClick={() => setSelectedService(null)}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-border hover:bg-white/5 text-xs font-medium text-slate-400 hover:text-white transition-colors"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-border hover:bg-white/5 text-xs font-medium text-muted-foreground hover:text-white transition-colors"
               >
                 Voltar às soluções
               </button>
@@ -1214,7 +1180,7 @@ export function ExpertiseSection() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-primary/20 hover:scale-[1.02]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-bold uppercase tracking-wider transition-colors hover:scale-[1.02]"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span>Conversar no WhatsApp</span>

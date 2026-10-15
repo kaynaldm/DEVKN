@@ -5,10 +5,14 @@ import { ProjectsSection } from '@/components/projects-section'
 import { ExpertiseSection } from '@/components/expertise-section'
 import { ContactFooter } from '@/components/contact-footer'
 import { WhatsappButton } from '@/components/whatsapp-button'
+import { CustomCursor } from '@/components/custom-cursor'
+import { EntryPreloader } from '@/components/entry-preloader'
 
 export default function Page() {
   return (
     <div className="min-h-dvh bg-background overflow-x-clip">
+      <EntryPreloader />
+      <CustomCursor />
       <SiteHeader />
       <main>
         <HeroSection />
